@@ -5,15 +5,12 @@ import { jsx } from '@emotion/core';
 import { DesignSystem } from '@gsong/design-system';
 
 export const Ui = () => {
-  const [color, setColor] = React.useState('red');
-
-  const toggleColor = () =>
-    color === 'red' ? setColor('pink') : setColor('red');
+  const { color, next } = useMachine();
 
   return (
     <div css={{ color }}>
       <h1>Welcome to ui!</h1>
-      <button onClick={() => toggleColor()}>Toggle</button>
+      <button onClick={next}>Toggle</button>
 
       <div
         css={{
@@ -26,6 +23,21 @@ export const Ui = () => {
       </div>
     </div>
   );
+};
+
+const useMachine = () => {
+  const machine = {
+    initial: 'green',
+    green: 'yellow',
+    yellow: 'red',
+    red: 'green'
+  };
+
+  const [color, setColor] = React.useState(machine.initial);
+
+  const next = () => setColor(machine[color]);
+
+  return { color, next };
 };
 
 export default Ui;
