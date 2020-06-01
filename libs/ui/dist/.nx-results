@@ -1,0 +1,7 @@
+{
+  "command": "build",
+  "results": {
+    "design-system": false,
+    "ui": false
+  }
+}

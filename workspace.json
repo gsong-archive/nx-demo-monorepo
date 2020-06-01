@@ -196,6 +196,51 @@
           }
         }
       }
+    },
+    "hooks": {
+      "root": "libs/hooks",
+      "sourceRoot": "libs/hooks/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/hooks/.eslintrc",
+            "tsConfig": [
+              "libs/hooks/tsconfig.lib.json",
+              "libs/hooks/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/hooks/**"]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/libs/hooks",
+            "tsConfig": "libs/hooks/tsconfig.lib.json",
+            "project": "libs/hooks/package.json",
+            "entryFile": "libs/hooks/src/index.js",
+            "external": [
+              "react",
+              "react-dom",
+              "@emotion/styled",
+              "@emotion/core"
+            ],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/hooks/jest.config.js",
+            "tsConfig": "libs/hooks/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

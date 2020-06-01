@@ -3,6 +3,7 @@ import * as React from 'react';
 import { jsx } from '@emotion/core';
 
 import { DesignSystem } from '@gsong/design-system';
+import { useMachine } from '@gsong/hooks';
 
 export const Ui = () => {
   const { color, next } = useMachine();
@@ -23,21 +24,6 @@ export const Ui = () => {
       </div>
     </div>
   );
-};
-
-const useMachine = () => {
-  const machine = {
-    initial: 'green',
-    green: 'yellow',
-    yellow: 'red',
-    red: 'green'
-  };
-
-  const [color, setColor] = React.useState(machine.initial);
-
-  const next = () => setColor(machine[color]);
-
-  return { color, next };
 };
 
 export default Ui;

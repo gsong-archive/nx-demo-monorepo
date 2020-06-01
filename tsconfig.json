@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@gsong/ui": ["libs/ui/src/index.js"],
-      "@gsong/design-system": ["libs/design-system/src/index.js"]
+      "@gsong/design-system": ["libs/design-system/src/index.js"],
+      "@gsong/hooks": ["libs/hooks/src/index.js"]
     }
   },
   "exclude": ["node_modules", "tmp"]

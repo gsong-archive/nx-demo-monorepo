@@ -31,6 +31,9 @@
     },
     "design-system": {
       "tags": []
+    },
+    "hooks": {
+      "tags": []
     }
   }
 }

@@ -1,17 +1,21 @@
 /** @jsx jsx */
-import * as React from 'react';
 import { jsx } from '@emotion/core';
 
-export const DesignSystem = () => {
-  const [color, setColor] = React.useState('blue');
+import { useMachine } from '@gsong/hooks';
 
-  const toggleColor = () =>
-    color === 'blue' ? setColor('green') : setColor('blue');
+export const DesignSystem = () => {
+  const { color, next } = useMachine({
+    initial: 'purple',
+    purple: 'blue',
+    blue: 'orange',
+    orange: 'gray',
+    gray: 'purple'
+  });
 
   return (
     <div css={{ color }}>
       <h1>Welcome to design-system!</h1>
-      <button onClick={() => toggleColor()}>Toggle</button>
+      <button onClick={next}>Toggle</button>
     </div>
   );
 };

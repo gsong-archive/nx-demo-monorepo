@@ -24,9 +24,10 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build:ui:watch": "nx build ui --watch",
     "build:design-system:watch": "nx build design-system --watch",
-    "build:libs:watch": "run-p build:design-system:watch build:ui:watch"
+    "build:hooks:watch": "nx build hooks --watch",
+    "build:libs:watch": "run-p build:design-system:watch build:hooks:watch build:ui:watch",
+    "build:ui:watch": "nx build ui --watch"
   },
   "private": true,
   "dependencies": {
