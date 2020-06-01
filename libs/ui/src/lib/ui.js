@@ -1,12 +1,16 @@
 /** @jsx jsx */
-import * as React from 'react';
 import { jsx } from '@emotion/core';
 
 import { DesignSystem } from '@gsong/design-system';
 import { useMachine } from '@gsong/hooks';
 
 export const Ui = () => {
-  const { color, next } = useMachine();
+  const { color, next } = useMachine({
+    initial: 'aqua',
+    aqua: 'red',
+    red: 'purple',
+    purple: 'aqua'
+  });
 
   return (
     <div css={{ color }}>
