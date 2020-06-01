@@ -1,13 +1,23 @@
-import React from 'react';
-import styled from '@emotion/styled';
-const StyledUi = styled.div`
-  color: pink;
-`;
-export const Ui = (props) => {
+/** @jsx jsx */
+import * as React from 'react';
+import { jsx } from '@emotion/core';
+
+import { DesignSystem } from '@gsong/design-system';
+
+export const Ui = () => {
+  const [color, setColor] = React.useState('red');
+
+  const toggleColor = () =>
+    color === 'red' ? setColor('pink') : setColor('red');
+
   return (
-    <StyledUi>
+    <div css={{ color }}>
       <h1>Welcome to ui!</h1>
-    </StyledUi>
+      <button onClick={() => toggleColor()}>Toggle</button>
+
+      <DesignSystem />
+    </div>
   );
 };
+
 export default Ui;

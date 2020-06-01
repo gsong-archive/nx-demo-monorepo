@@ -1,5 +1,7 @@
 import React from 'react';
+import { Ui } from '@gsong/ui';
 import styled from '@emotion/styled';
+
 import { ReactComponent as Logo } from './logo.svg';
 import star from './star.svg';
 const StyledApp = styled.div`
@@ -238,6 +240,7 @@ nx affected:e2e
 `}</pre>
         </details>
       </main>
+      <Ui />
     </StyledApp>
   );
 };

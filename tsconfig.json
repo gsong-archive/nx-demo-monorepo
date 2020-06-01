@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gsong/ui": ["libs/ui/src/index.js"]
+      "@gsong/ui": ["libs/ui/src/index.js"],
+      "@gsong/design-system": ["libs/design-system/src/index.js"]
     }
   },
   "exclude": ["node_modules", "tmp"]

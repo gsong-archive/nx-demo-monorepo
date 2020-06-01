@@ -151,6 +151,51 @@
           }
         }
       }
+    },
+    "design-system": {
+      "root": "libs/design-system",
+      "sourceRoot": "libs/design-system/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/design-system/.eslintrc",
+            "tsConfig": [
+              "libs/design-system/tsconfig.lib.json",
+              "libs/design-system/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/design-system/**"]
+          }
+        },
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/libs/design-system",
+            "tsConfig": "libs/design-system/tsconfig.lib.json",
+            "project": "libs/design-system/package.json",
+            "entryFile": "libs/design-system/src/index.js",
+            "external": [
+              "react",
+              "react-dom",
+              "@emotion/styled",
+              "@emotion/core"
+            ],
+            "babelConfig": "@nrwl/react/plugins/bundle-babel",
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/design-system/jest.config.js",
+            "tsConfig": "libs/design-system/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
