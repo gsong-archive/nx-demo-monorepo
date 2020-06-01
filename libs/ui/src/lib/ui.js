@@ -15,7 +15,15 @@ export const Ui = () => {
       <h1>Welcome to ui!</h1>
       <button onClick={() => toggleColor()}>Toggle</button>
 
-      <DesignSystem />
+      <div
+        css={{
+          border: '1px solid lightgray',
+          marginTop: '2rem',
+          padding: '1rem'
+        }}
+      >
+        <DesignSystem />
+      </div>
     </div>
   );
 };
